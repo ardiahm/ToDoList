@@ -31,11 +31,14 @@ export default function App() {
   return (
     /* The entire code is wrapped in a Touchable Feedback so user's can dismiss the keyboard */
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      {/* View components which handle styling for UI*/}
       <View style={styles.container}>
-  
         <View style={styles.tasksWrapper}>
+
           <Text style={styles.sectionTitle}>Today's Tasks</Text>
           <Text style={styles.sectionInstructions}>To delete a task, simply press the blue square.</Text>
+          
+          {/* Wrap Items (all tasks which will be displayed) in a scroll view*/}
           <ScrollView style={styles.items}>
             <View style={styles.items}>
               {
@@ -52,6 +55,8 @@ export default function App() {
             </View>
           </ScrollView>
         </View>
+
+        {/* using React Native documentation -> handle padding for text input and plus button based on user's platform  */}
         <KeyboardAvoidingView
           behavior={Platform.OS =="ios" ? "padding" : "height" }
           style={styles.writeTaskWrapper}
